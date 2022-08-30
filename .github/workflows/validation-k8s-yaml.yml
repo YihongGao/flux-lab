@@ -28,19 +28,19 @@ jobs:
         run: echo Hello, world!
 
       - name: validate kubernetes yaml in cluster folder 
-        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@1.0.0
+        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
         with:
           files: clusters
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: validate kubernetes yaml in infrastructure folder 
-        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@1.0.0
+        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
         with:
           files: infrastructure
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: validate kubernetes yaml in apps folder 
-        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@1.0.0
+        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
         with:
           files: apps
           token: ${{ secrets.GITHUB_TOKEN }}
