@@ -26,14 +26,34 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-      - name: 'Yamllint'
+
+      - name: 'Yamllint-cluster-folder'
         uses: karancode/yamllint-github-action@master
         with:
-          yamllint_file_or_dir: '.'
+          yamllint_file_or_dir: './clusters'
           yamllint_strict: false
           yamllint_comment: true
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Yamllint-infrastructure'
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: './infrastructure'
+          yamllint_strict: false
+          yamllint_comment: true
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Yamllint-apps'
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: './apps'
+          yamllint_strict: false
+          yamllint_comment: true
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
