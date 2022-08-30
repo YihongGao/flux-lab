@@ -5,6 +5,7 @@ metadata:
   labels:
     app: podinfo
   name: podinfo
+  namespace: lab
 spec:
   ports:
   - name: 8080-9898
